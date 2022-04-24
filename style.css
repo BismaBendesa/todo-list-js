@@ -93,13 +93,13 @@ body{
   color: rgba(255, 255, 255, .4);
 }
 
-.task-item{
+.list-name{
   cursor: pointer;
   transform: translateX(0);
   transition: transform 250ms ease;
 }
 
-.task-item:hover{
+.list-name:hover{
   transform: translateX(2px);
   transform-origin: left;
 }
