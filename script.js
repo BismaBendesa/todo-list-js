@@ -2,14 +2,9 @@ const parentLists = document.querySelector("[data-lists]");
 const listForm = document.querySelector("[data-new-list-form]");
 const listInput = document.querySelector("[data-new-list-input]");
 
-let lists = [
-  { id: 1, taskName: "Shitting", tasks: [] },
-  { id: 2, taskName: "Twerking", tasks: [] },
-];
+const LOCAL_STORAGE_LIST_KEY = "task.lists";
 
-const createList = (listName) => {
-  return { id: Date.now().toString(), taskName: listName, tasks: [] };
-};
+let lists = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || [];
 
 listForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -20,9 +15,23 @@ listForm.addEventListener("submit", (e) => {
     const list = createList(listName);
     listInput.value = null;
     lists.push(list);
-    render();
+    saveAndRender();
   }
 });
+
+const createList = (listName) => {
+  return { id: Date.now().toString(), taskName: listName, tasks: [] };
+};
+
+function saveAndRender() {
+  console.log(Date.now());
+  save();
+  render();
+}
+
+function save() {
+  localStorage.setItem(LOCAL_STORAGE_LIST_KEY, JSON.stringify(lists));
+}
 
 function render() {
   clearElement(parentLists);
@@ -30,7 +39,6 @@ function render() {
     const li = document.createElement("li");
     li.innerText = list.taskName;
     li.dataset.listId = list.id;
-    console.log(list.taskName);
     li.classList.add("list-name");
     parentLists.append(li);
   });
