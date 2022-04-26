@@ -159,7 +159,7 @@ body{
   font-size: 1.2rem;
   padding: 1em ;
   position :relative;
-  height: 43%;
+  /* height: 43%; */
 }
 
 .task{
