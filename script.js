@@ -40,6 +40,8 @@ taskForm.addEventListener("submit", (e) => {
   const selectedList = lists.find((list) => list.id === selectedListId);
   if (taskname === "" || taskname === null || taskname === undefined) {
     return;
+  } else if (selectedList === undefined || selectedList === null) {
+    return alert("Please create a list first!");
   } else {
     const task = createTask(taskname);
     taskInput.value = null;
@@ -138,8 +140,9 @@ function render() {
   clearElement(parentLists);
   renderListTask();
   const selectedList = lists.find((list) => list.id === selectedListId);
-  if (selectedListId == undefined) {
+  if (selectedListId === undefined || selectedListId === undefined) {
     listTaskContainer.style.display = "none";
+    console.log("masuk sini ndak?");
   } else {
     listTaskContainer.style.display = "";
     listTitle.innerText = selectedList.listName;
