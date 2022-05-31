@@ -302,6 +302,7 @@ body{
 @media(max-width : 846px){
   body{
     display: grid;
+    padding-bottom: 120px;
     gap: 1.5rem;
     grid: 
     "header" auto
@@ -322,7 +323,7 @@ body{
     box-shadow: none;
   }
   .delete-stuff{
-    padding-bottom : 1em;
+    padding-bottom : 2em 0;
   }
 }
 
