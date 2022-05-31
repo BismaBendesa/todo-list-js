@@ -299,6 +299,33 @@ body{
   transform: scale(1.5);
 }
 
+@media(max-width : 846px){
+  body{
+    display: grid;
+    gap: 1.5rem;
+    grid: 
+    "header" auto
+    "lists" auto  
+    "active" auto /
+    1fr
+    /* grid-template: 
+    "header header header header"
+    "...... lists  active ......" ;
+    grid-template-columns: 1fr minmax(100px, 300px) minmax(100px, 300px) 1fr; */
+  }
+  .all-tasks{
+    margin : 0 2em
+  }
+
+  .todo-list{
+    padding: 1em 1.1em 0.5em 1.1em ;
+    box-shadow: none;
+  }
+  .delete-stuff{
+    padding-bottom : 1em;
+  }
+}
+
 
 
 
